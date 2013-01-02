@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Getting Started with deck.js</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/swiss.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/horizontal-slide.css">
+	
+        <link rel="stylesheet" href="../extensions/codemirror/deck.codemirror.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="../extensions/codemirror/themes/default.css" type="text/css" media="screen" charset="utf-8">
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+        <script src="../angular.min.js"></script>
+</head>
+
+<body class="deck-container">
+
+<!--<div class="theme-menu">-->
+	<!--<h2>Themes</h2>	-->
+	
+	<!--<label for="style-themes">Style:</label>-->
+	<!--<select id="style-themes">-->
+		<!--<option selected value="../themes/style/web-2.0.css">Web 2.0</option>-->
+		<!--<option value="../themes/style/swiss.css">Swiss</option>-->
+		<!--<option value="../themes/style/neon.css">Neon</option>-->
+		<!--<option value="">None</option>-->
+	<!--</select>-->
+	
+	<!--<label for="transition-themes">Transition:</label>-->
+	<!--<select id="transition-themes">-->
+		<!--<option selected value="../themes/transition/horizontal-slide.css">Horizontal Slide</option>-->
+		<!--<option value="../themes/transition/vertical-slide.css">Vertical Slide</option>-->
+		<!--<option value="../themes/transition/fade.css">Fade</option>-->
+		<!--<option value="">None</option>-->
+	<!--</select>-->
+<!--</div>-->
+
+<section class="slide" id="title-slide">
+	<h1>开始使用Angularjs</h1>
+</section>
+
+<section class="slide" id="what-is-backbonejs">
+    <!--{{{-->
+    <h2>什么是Angularjs</h2>
+    <ol>
+        <li>
+            <h3>Angularjs是一个扩展了浏览器功能的js框架</h3>
+        </li>
+        <li>
+            <h3>数据绑定</h3>
+            <div id="code" name="code" class="code" mode="htmlmixed" style="display: none;">
+<input type="text" ng-model="yourName" placeholder="Enter a name here">
+            </div>
+            
+        </li>
+        <li>
+            <h3>MVC</h3>
+            <ul>
+                <li>M: Javascript 对象</li>
+                <li>V: HTML</li>
+                <li>C: Js 函数
+            <div id="code" name="code" class="code" mode="javascript" style="display: none;">
+MyCtrl = function($scope) {
+    $scope.yourName = "Ting";
+}
+            </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h3>DSL</h3>
+            <ul>
+                <li>定义自己的HTML标签</li>
+                <div name="code" class="code" mode="htmlmixed">
+<button ng-click="show=true">show</button>
+
+<div ng-show="wrongFormat">
+   不正确的格式
+</div>
+                </div>
+            </ul>
+        </li>
+    </ol>
+    <!--}}}-->
+</section>
+
+<section class="slide" id="php-mvc-vs-backbonejs-mvc">
+    <!--{{{-->
+    <h2>PHP MVC vs js MVC</h2>
+    <h3>PHP MVC</h3>
+    <ul>
+        <li> Controller为中心</li>
+        <li> Request和Response作为和用户交互的途径</li>
+    </ul>
+    <img src="model2-mvc.png"/>
+    <li>picture from http://blog.nodejitsu.com/scaling-isomorphic-javascript-code</li>
+    <!--}}}-->
+</section>
+
+<section class="slide" id="js-mvc">
+    <!--{{{-->
+    <h2>PHP MVC vs js MVC</h2>
+    <h3>js MVC</h3>
+    <ul>
+        <li>View 为中心</li>
+        <li>不需要Request和Response, 都在浏览器中完成</li>
+    </ul>
+    <img src="backbone-mvc.png"/>
+    <li>picture from http://blog.nodejitsu.com/scaling-isomorphic-javascript-code</li>
+    <!--}}}-->
+</section>
+<section class="slide" id="angularjs-data-binding">
+    <!--{{{-->
+    <h2> 数据绑定 </h2>
+
+    <h4>双向数据绑定</h4>
+    <div>
+        <h4>js对象和DOM元素直接双向绑定</h4>
+        <img src="databinding.png"/>
+        <div id="code" name="code" class="code" mode="htmlmixed">
+<input type="text" ng-model="product.name"/>
+<input type="text" ng-model="product.sku"/>
+<input type="text" ng-model="product.price"/>
+        </div>
+    </div>
+    <br />
+    <div>
+    <h4>例子</h4>
+    <a href="http://jsfiddle.net/tingwang/xfznF/3/" target="_blank">sample</a>
+    </div>
+
+    <!--}}}-->
+</section>
+
+
+<section class="slide" id="backbone-view">
+    <!--{{{-->
+    <h2> Backbonejs View </h2>
+
+    <h4> Setter and Getter</h4>
+    <div>
+        <div id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true" globals="$,Backbone,_">
+            var Customer = Backbone.Model.extend({
+                defaults: {gender: 'male'}
+            });
+            var CustomerView = Backbone.View.extend({
+                el: $('#view-test'),
+                initialize: function() {
+                    this.model = new Customer();
+                    this.model.bind('change:gender', this.updateGenderInput, this);
+                    this.$('.gender').val(this.model.get('gender'));
+                    console.log(this.$('.gender').val());
+                },
+                updateGenderInput: function() {
+                    console.log('update gender input');
+                    this.$('input.gender').val(this.model.get('gender'));
+                },
+                events: {
+                    'click .female': 'setAsFemale',
+                    'click .male': 'setAsMale'
+                },
+                setAsFemale: function() {
+                    this.model.set({gender: 'female'});
+                },
+                setAsMale: function() {
+                    this.model.set({gender: 'male'});
+                }
+            });
+
+            var aView  = new CustomerView();
+        </div>
+    </div>
+    <div>
+        <div id="code" name="code" class="code" mode="htmlmixed" style="display: none;">
+            <div id="view-test.">
+                <label>Gender:</label><input class="gender" type="text"/><br/>
+                <span class="female">female</span><br/>
+                <span class="male">male</span><br/>
+            </div>
+        </div>
+    </div>
+    <div id="view-test">
+        <label>Gender:</label><input class="gender" type="text"/><br/>
+        <span class="female">female</span><br/>
+        <span class="male">male</span><br/>
+    </div>
+    <!--}}}-->
+</section>
+
+<section class="slide" id="short-intro-template">
+    <h2>Underscore Template </h2>
+    <dl>
+        <dt>Undercore</dt><dd>Underscore is a utility-belt library for JavaScript that provides a lot of the functional programming support that you would expect in Prototype.js (or Ruby), but without extending any of the built-in JavaScript objects. It's the tie to go along with jQuery's tux. -- from web of underscore</dd>
+        <dt>
+    </dl>
+    <dl>
+        <dt>template</dt>
+        <dd>
+        _.template(templateString, [context]);
+        </dd>
+    </dl>
+    <br/>
+    <br/>
+    <div>
+        <div id="code" name="code" class="code" mode="javascript" style="display: none;">
+            <script>
+                var templateString = "<%= name %> says <%= word %>";
+            </script>
+        </div>
+    </div>
+
+    <script type="codemirror" data-selector="#u-template">
+        var templateString = "<%= name %> says <%= word %>";
+    </script>
+    <div>
+        <div id="u-template" name="code" class="code" mode="javascript" runnable="true" globals="$,Backbone,_" style="display: none;">
+            var template = _.template(templateString);
+            var filled = template({name: 'Ting', word: 'Hello'});
+            console.log(filled);
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="backbone-sync">
+    <h2> synchronize Backbonejs model with Zend Model</h2>
+    <h4> Request </h4>
+    <p> Backbone implements a RESTFul interface 
+    <dl>
+        <dt>fetch(options):</dt><dd>GET (retriev, a collection or an object depends on parameter)</dd>
+        <dt>save(attrs, options):</dt><dd>PUT (create)/POST(update)</dd>
+        <dt>destory(options):</dt><dd>DELETE (delete)</dd>
+    </dl>
+    <p> <b>options.success</b> and <b>options.error</b> are used as the callback according to the return status</p>
+    <h4> Response </h4>
+    <dl>
+        <dt>parse(res, xhr)</dt><dd>Convert the response into Model</dd>
+    </dl>
+</section>
+
+<section class="slide" id="Further issues">
+    <h2>Further topics</h2>
+    <h3>Dependence and Package Management</h3>
+    <h3>Unit Test</h3>
+</section>
+
+<section class="slide" id="package-management">
+
+    <h2> Package management for JS, Why?</h2>
+            <i>Real code from our project</i><br>
+            <div>
+                <div id="u-template" name="code" class="code" mode="htmlmixed" style="display: none;">
+<script type="text/javascript" src="static/js/jquery/jquery-1-6-1-min.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/Utils.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/jquery-ui-1-8-16-custom-min.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/flamewave-jquery-ui-numeric/jquery-ui-numeric.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/jquery_editable.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/jquery_pagination.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/underscore.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/backbone.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/order/order.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/customer/customer.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/customer/address.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/product/product.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/payment/payment.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/order/orderItems.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/modules/order/newOrderApp.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/jquery-autocomplete.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/jquery-ui-1-8-16-custom-min.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/jquery-ui-timepicker-addon.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/jquery/toastmessage/jquery_toastmessage.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+<script type="text/javascript" src="static/js/backend.8d0411b338c83cd8cd8ad9d9db127101.js"></script>
+        
+                </div>
+            </div>
+</section>
+<section class="slide" id="backbone-requirejs">
+    <h2> Package/Dependence Management</h2>
+    <h3> Requirejs </h3>
+            <div>
+                <div id="u-template" name="code" class="code" mode="javascript" style="display: none;">
+define(
+    ['jquery', 'order!underscore', 'order!backbone', 'modules/customer/models/customer'],
+    function($, a, b, Customer){
+        var CustomerCollection = Backbone.Collection.extend({
+            model: Customer,
+            url: 'services/s.php',
+            initialize: function() {
+            },
+            /**
+             * parses the json from server side and converts it into customer models. 
+             * @param data json from server
+             * @returns [Customer,..]
+             */
+            parse: function(resp) {
+                var customers = [];
+                _.each(resp, function(data, index) {
+                    customers[index] = new Customer(data);
+                });
+                return customers;
+            }
+        });
+        return CustomerCollection;
+});
+                </div>
+            </div>
+</section>
+
+
+<section class="slide" id="js-unitest-1">
+    <h2> Javascript Unit Test, It's a littel bit over, or?</h2>
+    <h3>How we develop Js code?</h3>
+    <div>
+        <div id="u-template" name="code" class="code" mode="javascript" style="display: none;">
+            while(!allworks) {
+                code();
+                refreshBrowser();
+            }
+        </div>
+    </div>
+</section>
+
+<section class="slide", id="js-unittest-2">
+    <h2> There's such tools </h2>
+    chrome-reload
+    Live-Reload
+    <img src="livereload.jpg"/>
+    <img src="chrome-reload.png"/>
+</section>
+
+<section class="slide" id="backbone-jasmin">
+    <h2> Jasmin and Sinon</h2>
+    <h3> Jasmin </h3>
+    <p> what is jasmin </p>
+    <h3> Sinon </h3>
+    <p> what is sinon </p>
+</section>
+
+<section class="slide" id="a-spec">
+    <h2>Develop Sync function without backend </h2>
+
+    <div>
+        <div id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true" globals="$,Backbone,_">
+
+describe('address picker', function() {
+    // <!-- {{{ -->
+    beforeEach(function(){
+        this.server = sinon.fakeServer.create();
+        this.res = {
+            all: {data: [{
+                first_name: 'Black',
+                second_name: 'Smith',
+                city: 'Mainz',
+                street: 'Abalam',
+                zip: 12312
+            } , {
+                first_name: 'Black',
+                second_name: 'Smith',
+                city: 'Mainz',
+                street: 'Alibaba',
+                zip: 12299
+            }]}
+        };
+        setFixtures('<div id="single-address-line-template"></div>');
+    });// <!-- }}} -->
+
+    afterEach(function(){
+        this.server.restore();
+    });
+    // <!-- {{{ -->
+    it('lists all address of a customer', function() {
+        this.server.respondWith(
+            'GET',
+            '/admin/customer/admin_address/address/format/json?customer_id=1',
+            JSON.stringify(this.res.all)
+        );
+        var addresses = new wib_modules_customer.Addresses();
+        addresses.fetch({data: {customer_id: 1}});
+        expect(this.server.requests.length).toEqual(1);
+        expect(this.server.requests[0].method).toEqual('GET');
+        expect(this.server.requests[0].url).toEqual('/admin/customer/admin_address/address/format/json?customer_id=1');
+
+        this.server.respond();
+
+        expect(addresses.length).toEqual(2);
+
+    }); // <!-- }}} -->
+
+
+});
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="fazit">
+    <h2>Fazit</h2>
+    <h3> Backbonejs is</h3>
+    <ol>
+        <li>Small 4.6kb</li>
+        <li>Simple</li>
+        <li>Flexible, can work with JQuery or any other Js Framework</li>
+        <li>Good community, a lot of tutorial, books and plugins</li>
+    </ol>
+</section>
+<section class="slide" id="questions">
+    <h2>Question?</h2>
+    <h1>Thanks</h1>
+</section>
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!--code mirror for code hightlight-->
+<script src="../extensions/codemirror/codemirror.js"></script>
+<script src="../extensions/codemirror/mode/javascript/javascript.js"></script>
+<script src="../extensions/codemirror/mode/xml/xml.js"></script>
+<script src="../extensions/codemirror/mode/css/css.js"></script>
+<script src="../extensions/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="../extensions/codemirror/mode/php/php.js"></script>
+
+
+<script src="../extensions/codemirror/deck.codemirror.js"></script>
+
+
+
+<script src="../underscore.js"></script>
+<script src="../backbone.js"></script>
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>
